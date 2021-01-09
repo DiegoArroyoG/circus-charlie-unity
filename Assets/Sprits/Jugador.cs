@@ -6,16 +6,21 @@ public class Jugador : MonoBehaviour
 {
     public GameManager gameManager;
 
+    public GameObject jugador;
     public float alturaSalto;
     public float velocidad;
     private Rigidbody2D rigidbody2D;
     private Animator animator;
+    private FixedJoint2D fixedJoint2D;
+    private AudioSource jump;
     private bool salto=false;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        fixedJoint2D = GetComponent<FixedJoint2D>();
+        jump = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,6 +33,7 @@ public class Jugador : MonoBehaviour
             Input.GetKeyDown(KeyCode.UpArrow) ||
             Input.GetKeyDown(KeyCode.W)))
             {
+                jump.Play();
                 salto = true;
                 animator.SetBool("estaSaltando", true);
                 rigidbody2D.AddForce(new Vector2(0, alturaSalto));
@@ -49,6 +55,12 @@ public class Jugador : MonoBehaviour
         }
     }
 
+    public void Spawn()
+    {
+        jugador = Instantiate(JugadorStorage.jugadorPrefab, this.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        fixedJoint2D.connectedBody = jugador.GetComponent<Rigidbody2D>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Suelo")
@@ -59,6 +71,7 @@ public class Jugador : MonoBehaviour
 
         if (collision.gameObject.tag == "Obstaculo")
         {
+            
             gameManager.gameOver = true;
         }
     }
