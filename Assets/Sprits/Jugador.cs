@@ -38,12 +38,12 @@ public class Jugador : MonoBehaviour
                 animator.SetBool("estaSaltando", true);
                 rigidbody2D.AddForce(new Vector2(0, alturaSalto));
             }
-            if(Input.GetKey(KeyCode.RightArrow) ||
+            else if(Input.GetKey(KeyCode.RightArrow) ||
             Input.GetKey(KeyCode.D))
             {
                 rigidbody2D.AddForce(new Vector2(velocidad, 0));
             }
-            if(Input.GetKey(KeyCode.A) ||
+            else if(Input.GetKey(KeyCode.A) ||
             Input.GetKey(KeyCode.LeftArrow))
             {
                 rigidbody2D.AddForce(new Vector2(-1*velocidad, 0));
