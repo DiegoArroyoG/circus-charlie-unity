@@ -13,6 +13,8 @@ public class Jugador : MonoBehaviour
     private Animator animator;
     private FixedJoint2D fixedJoint2D;
     private AudioSource jump;
+    private bool izquierda=false;
+    private bool derecha=false;
     private bool salto=false;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class Jugador : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         fixedJoint2D = GetComponent<FixedJoint2D>();
-        jump = GetComponent<AudioSource>();
+        jump = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -39,12 +41,14 @@ public class Jugador : MonoBehaviour
                 rigidbody2D.AddForce(new Vector2(0, alturaSalto));
             }
             else if(Input.GetKey(KeyCode.RightArrow) ||
-            Input.GetKey(KeyCode.D))
+            Input.GetKey(KeyCode.D) ||
+            derecha)
             {
                 rigidbody2D.AddForce(new Vector2(velocidad, 0));
             }
             else if(Input.GetKey(KeyCode.A) ||
-            Input.GetKey(KeyCode.LeftArrow))
+            Input.GetKey(KeyCode.LeftArrow) ||
+            izquierda)
             {
                 rigidbody2D.AddForce(new Vector2(-1*velocidad, 0));
             }
@@ -73,6 +77,25 @@ public class Jugador : MonoBehaviour
         {
             
             gameManager.gameOver = true;
+        }
+    }
+
+    public void setDerecha(bool estado)
+    {
+        derecha=estado;
+    }
+    public void setIzquierda(bool estado)
+    {
+        izquierda=estado;
+    }
+    public void saltar()
+    {
+        if(!salto)
+        {
+            jump.Play();
+            salto = true;
+            animator.SetBool("estaSaltando", true);
+            rigidbody2D.AddForce(new Vector2(0, alturaSalto));
         }
     }
 }

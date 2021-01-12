@@ -95,4 +95,19 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public void buttonX()
+    {
+        if (!start && !gameOver)
+        {
+            start = true;
+        }
+        else if(gameOver)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if(win)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
 }
