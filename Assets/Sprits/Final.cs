@@ -8,9 +8,12 @@ public class Final : MonoBehaviour
 
     public void Spawn(int index)
     {
-        if(index == 0)//cordinadores
+        if(index == 0 || index == 20)//cordinadores
         {
-            Instantiate(prefabs[0], Vector3.zero, Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[0], new Vector3(-2, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[20], new Vector3(2, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[0], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[20], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
         }
         else if(index == 5 || index == 7)
         {
@@ -35,6 +38,58 @@ public class Final : MonoBehaviour
         else if(index == 9)
         {
             Instantiate(prefabs[9], Vector3.zero, Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+        }
+        else if(index == 22 || index == 23)
+        {
+            Instantiate(prefabs[22], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[23], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+        }
+        else if(index == 10 || index == 13)
+        {
+            Instantiate(prefabs[10], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[13], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+        }
+        else if(index == 14 || index == 16)
+        {
+            Instantiate(prefabs[14], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[16], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+        }
+        else if(index == 19 || index == 21)
+        {
+            Instantiate(prefabs[19], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[21], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+        }
+        else if(index == 17 || index == 18)
+        {
+            Instantiate(prefabs[17], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[18], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+        }
+        else if(index == 11 || index == 15 || index == 12)
+        {
+            Instantiate(prefabs[11], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[15], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[12], new Vector3(0, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+        }
+        else if(index == 31 || index == 24)
+        {
+            Instantiate(prefabs[31], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[24], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+        }
+        else if(index == 25 || index == 33)
+        {
+            Instantiate(prefabs[25], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[33], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+        }
+        else if(index == 30 || index == 27)
+        {
+            Instantiate(prefabs[30], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[27], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+        }
+        else if(index == 29 || index == 26 || index == 32)
+        {
+            Instantiate(prefabs[29], new Vector3(-1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[26], new Vector3(1, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
+            Instantiate(prefabs[32], new Vector3(0, 0, 0), Quaternion.identity, GameObject.FindGameObjectWithTag("Final").transform);
         }
     }
 }
