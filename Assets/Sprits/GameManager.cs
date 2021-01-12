@@ -84,14 +84,14 @@ public class GameManager : MonoBehaviour
                     obstaculos[i].transform.position = new Vector3(randomObs, 2.46f, 0);
                     obstaculos[i+1].transform.position = new Vector3(randomObs, -2, 0);
                     saltos++;
-                    if(saltos>=2)
+                    if(saltos>=8)
                     {
                         claps.Play();
                         spawnFinal = true;
                         win = true;
                     } 
                 }
-                obstaculos[i].transform.position = obstaculos[i].transform.position + new Vector3(-1, 0, 0) * velocidad * Time.deltaTime;
+                obstaculos[i].transform.position = obstaculos[i].transform.position + new Vector3(-1.5f, 0, 0) * velocidad * Time.deltaTime;
             }
         }
     }
