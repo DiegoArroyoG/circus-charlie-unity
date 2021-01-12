@@ -24,4 +24,8 @@ public class JugadorSelector : MonoBehaviour
         JugadorStorage.index = index;
         JugadorStorage.jugadorPrefab = this.prefabs[index];
     }
+    public void buttonX()
+    {
+        jugador.Spawn();
+    }
 }
